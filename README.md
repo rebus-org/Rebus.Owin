@@ -1,4 +1,4 @@
-# Rebus.TODO
+# Rebus.Owin
 
 Provides an OWIN host for [Rebus](https://github.com/rebus-org/Rebus).
 
