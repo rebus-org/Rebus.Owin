@@ -16,11 +16,14 @@ namespace Rebus.Owin
         {
             if (rebusLoggerFactory == null) throw new ArgumentNullException(nameof(rebusLoggerFactory));
 
-            _logger = rebusLoggerFactory.GetCurrentClassLogger();
+            _logger = rebusLoggerFactory.GetLogger<RebusWebHost>();
         }
 
         public void AddEndpoint(string listenUrl, Action<IAppBuilder> startup)
         {
+            if (listenUrl == null) throw new ArgumentNullException(nameof(listenUrl));
+            if (startup == null) throw new ArgumentNullException(nameof(startup));
+
             _endpoints.Add(new Endpoint(_logger, listenUrl, startup));
         }
 
